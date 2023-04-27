@@ -57,13 +57,14 @@ function App() {
       
     }
   }
-  //sauvegarde du score dans le total
+  
   const init = () =>{
     setPlayer1(new Player(1));
     setPlayer2(new Player(2));
     setIsPlayer1(true);
     //<Init></Init>
   }
+  //sauvegarde du score dans le total
   const hold = () => {
     let currentPlayer = isPlayer1 ? {...player1} : {...player2} ;
     currentPlayer.totalScore += currentPlayer.currentScore;
@@ -86,6 +87,7 @@ function App() {
   }
   return (
     <div className="App">
+      <button onClick={init}>Nouveau Jeu</button>
       <p className='DashBoard'>Joueur Actuel : {isPlayer1 ? "le joueur 1": "le joueur 2"}</p>
       {winner && ( <Winner player={winner} setStateWinner={setWinner} init={init}/>)} {/* si winner existe alors afficher le Composant */}
       <div className={isPlayer1 ? "activePlayer" : ""}>
